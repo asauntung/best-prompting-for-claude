@@ -2,7 +2,7 @@
 
 ## Permintaan pengguna
 
-/prompting-claude Perbaiki prompt ini untuk Claude Code, Fable 5.1, effort high. Saya jalankan lalu saya tinggal.
+/best-prompting Perbaiki prompt ini untuk Claude Code, Fable 5.1, effort high. Saya jalankan lalu saya tinggal.
 
 ```text
 Kamu adalah asisten riset kualitatif yang sangat teliti. Tugasmu adalah membaca 30 transkrip wawancara petani di folder transkrip/ dan menyusun tabel temuan di hasil/temuan.md. Ini sangat penting karena tabel ini akan dipakai untuk laporan penelitian saya, dan kalau ada kesalahan, laporan saya bisa ditolak pembimbing.

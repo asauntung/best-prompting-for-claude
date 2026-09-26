@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.1 (2026-09-26)
+
+- Skill diganti nama dari `prompting-claude` menjadi `best-prompting`, dipanggil dengan `/best-prompting`. Nama lama ditolak saat diunggah ke claude.ai karena kolom `name` tidak boleh memuat kata "claude" atau "anthropic".
+- Folder skill kini `best-prompting/` dan zip siap unggah kini `dist/best-prompting.zip`.
+
 ## v1.1.0 (2026-09-26)
 
 - `SKILL.md`: bagian baru 7 tentang prompt yang ringkas. Potongan referensi dipakai hanya bila gejalanya ada, satu instruksi singkat menggantikan daftar kasus, alasan diberikan sekali, tiap aturan ditulis sekali, dan memadatkan tidak boleh merumuskan ulang kalimat kriteria. Bagian sesudahnya bergeser nomor.

@@ -1,8 +1,8 @@
-# Menguji skill /prompting-claude
+# Menguji skill /best-prompting
 
 Tujuan folder ini: memastikan skill tetap berperilaku benar setelah referensi diperbarui, model baru ditambahkan, atau `SKILL.md` diubah. Prinsipnya mengikuti dokumen Anthropic yang disertakan di [`references/develop-tests.md`](references/develop-tests.md): tetapkan kriteria keberhasilan yang spesifik dan terukur, lalu uji dengan kasus yang mencakup situasi normal dan tepi.
 
-Dokumen `develop-tests.md` sengaja disimpan di sini, bukan di `prompting-claude/references/`, supaya tidak ikut dibaca skill di setiap pemanggilan.
+Dokumen `develop-tests.md` sengaja disimpan di sini, bukan di `best-prompting/references/`, supaya tidak ikut dibaca skill di setiap pemanggilan.
 
 ## Cara menjalankan
 

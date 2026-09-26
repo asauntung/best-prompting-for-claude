@@ -2,7 +2,7 @@
 
 ## Permintaan pengguna
 
-> /prompting-claude Buatkan prompt untuk Cowork, model Fable 5.1, effort xhigh. Saya pemilik usaha kopi kemasan. Saya ingin Claude meriset lima kompetitor dari situs web dan media sosial mereka, membaca email penawaran dari distributor di inbox saya, lalu menulis laporan perbandingan harga dan strategi pemasaran dalam bentuk dokumen, sementara saya tinggal.
+> /best-prompting Buatkan prompt untuk Cowork, model Fable 5.1, effort xhigh. Saya pemilik usaha kopi kemasan. Saya ingin Claude meriset lima kompetitor dari situs web dan media sosial mereka, membaca email penawaran dari distributor di inbox saya, lalu menulis laporan perbandingan harga dan strategi pemasaran dalam bentuk dokumen, sementara saya tinggal.
 
 ## Keluaran skill
 

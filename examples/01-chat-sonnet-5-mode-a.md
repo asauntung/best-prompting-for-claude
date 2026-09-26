@@ -2,7 +2,7 @@
 
 ## Permintaan pengguna
 
-> /prompting-claude Saya guru Biologi SMA. Tolong buatkan instruksi untuk Project di claude.ai supaya Claude membantu saya membuat 10 soal pilihan ganda dari materi bab yang saya tempel, lengkap dengan kunci dan pembahasan singkat. Model Sonnet 5.
+> /best-prompting Saya guru Biologi SMA. Tolong buatkan instruksi untuk Project di claude.ai supaya Claude membantu saya membuat 10 soal pilihan ganda dari materi bab yang saya tempel, lengkap dengan kunci dan pembahasan singkat. Model Sonnet 5.
 
 ## Keluaran skill
 

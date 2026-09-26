@@ -1,9 +1,9 @@
 ---
-name: prompting-claude
-description: Menyusun prompt baru atau menyempurnakan prompt yang sudah ada untuk Claude di chat (claude.ai), Cowork, atau Claude Code, khusus model Claude Sonnet 5, Opus 5.5, dan Fable 5.1, dengan dokumen resmi Anthropic di references/ sebagai satu-satunya ground truth. Gunakan setiap kali pengguna memanggil /prompting-claude, meminta dibuatkan prompt atau system prompt untuk Claude, atau menempel prompt untuk diperbaiki. Bukan untuk prompt pembuat gambar atau video (Nano Banana, Midjourney, dan sejenisnya), dan bukan untuk model non-Claude.
+name: best-prompting
+description: Menyusun prompt baru atau menyempurnakan prompt yang sudah ada untuk Claude di chat (claude.ai), Cowork, atau Claude Code, khusus model Claude Sonnet 5, Opus 5.5, dan Fable 5.1, dengan dokumen resmi Anthropic di references/ sebagai satu-satunya ground truth. Gunakan setiap kali pengguna memanggil /best-prompting, meminta dibuatkan prompt atau system prompt untuk Claude, atau menempel prompt untuk diperbaiki. Bukan untuk prompt pembuat gambar atau video (Nano Banana, Midjourney, dan sejenisnya), dan bukan untuk model non-Claude.
 ---
 
-# /prompting-claude
+# /best-prompting
 
 Skill ini menghasilkan satu prompt terbaik untuk kebutuhan pengguna, didahului analisis yang menjelaskan kenapa prompt, model, dan effort itu diusulkan. Semua analisis berpijak pada dokumentasi resmi Anthropic di folder `references/`.
 

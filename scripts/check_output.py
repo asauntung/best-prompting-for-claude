@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Periksa otomatis aturan format keluaran skill /prompting-claude.
+"""Periksa otomatis aturan format keluaran skill /best-prompting.
 
 Pemakaian:
     python3 scripts/check_output.py FILE [FILE ...]
@@ -17,8 +17,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKILL = ROOT / "prompting-claude" / "SKILL.md"
-REFS = ROOT / "prompting-claude" / "references"
+SKILL = ROOT / "best-prompting" / "SKILL.md"
+REFS = ROOT / "best-prompting" / "references"
 
 ECOSYSTEMS = ["Chat", "Cowork", "Claude Code"]
 EFFORTS = ["low", "medium", "high", "xhigh", "max"]

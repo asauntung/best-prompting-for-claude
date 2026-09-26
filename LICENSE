@@ -22,6 +22,6 @@ SOFTWARE.
 
 ---
 
-Exclusion: the files in `prompting-claude/references/` and `evals/references/`
+Exclusion: the files in `best-prompting/references/` and `evals/references/`
 are copies of Anthropic documentation. They are not covered by this license and
 remain the property of Anthropic, PBC. See NOTICE.md.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Unduh ulang dokumentasi resmi Anthropic ke prompting-claude/references/.
+"""Unduh ulang dokumentasi resmi Anthropic ke best-prompting/references/.
 
 Langkahnya:
 1. Ambil versi Markdown tiap halaman (URL halaman + ".md").
@@ -24,7 +24,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKILL_REFS = ROOT / "prompting-claude" / "references"
+SKILL_REFS = ROOT / "best-prompting" / "references"
 EVAL_REFS = ROOT / "evals" / "references"
 NOTES_FILE = ROOT / "scripts" / "local_notes.json"
 DOCS = "https://platform.claude.com/docs/en/"
@@ -50,7 +50,7 @@ ATTR = re.compile(r'(\w+)="([^"]*)"')
 
 
 def fetch(page_path: str) -> str:
-    req = urllib.request.Request(DOCS + page_path + ".md", headers={"User-Agent": "prompting-claude-updater/1.0"})
+    req = urllib.request.Request(DOCS + page_path + ".md", headers={"User-Agent": "best-prompting-updater/1.0"})
     with urllib.request.urlopen(req, timeout=60) as resp:
         return resp.read().decode("utf-8")
 

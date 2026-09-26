@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Bungkus folder prompting-claude/ menjadi dist/prompting-claude.zip.
+"""Bungkus folder best-prompting/ menjadi dist/best-prompting.zip.
 
 File zip ini yang diunggah ke menu Skills di claude.ai.
-Isinya satu folder prompting-claude/ berisi SKILL.md dan references/.
+Isinya satu folder best-prompting/ berisi SKILL.md dan references/.
 
 Pemakaian:
     python3 scripts/build_zip.py
@@ -12,8 +12,8 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKILL_DIR = ROOT / "prompting-claude"
-OUT = ROOT / "dist" / "prompting-claude.zip"
+SKILL_DIR = ROOT / "best-prompting"
+OUT = ROOT / "dist" / "best-prompting.zip"
 
 
 def main():

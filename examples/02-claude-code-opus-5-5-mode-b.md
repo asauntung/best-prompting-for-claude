@@ -2,7 +2,7 @@
 
 ## Permintaan pengguna
 
-/prompting-claude Perbaiki prompt saya ini untuk Claude Code, model Opus 5.5, effort max:
+/best-prompting Perbaiki prompt saya ini untuk Claude Code, model Opus 5.5, effort max:
 
 ```text
 PENTING!!! Kamu adalah editor profesional. Rapikan SEMUA file markdown di folder catatan/, perbaiki typo dan ejaan, samakan format judul. JANGAN ADA YANG TERLEWAT. Kerjakan secepatnya.

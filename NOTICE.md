@@ -2,7 +2,7 @@
 
 File di folder berikut adalah salinan dokumentasi resmi Anthropic, PBC dari https://platform.claude.com/docs:
 
-- `prompting-claude/references/`
+- `best-prompting/references/`
 - `evals/references/`
 
 Hak cipta atas isi dokumen tersebut tetap milik Anthropic. File-file itu **tidak** dilisensikan di bawah lisensi MIT repo ini. URL sumber dan tanggal pengambilan tercantum di header setiap file.
