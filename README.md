@@ -63,7 +63,7 @@ Sebutkan **model** (wajib) dan **ekosistem**. Effort boleh tidak disebut: skill 
 |---|---|
 | `prompting-claude/` | Skill itu sendiri: `SKILL.md` dan `references/` |
 | `dist/prompting-claude.zip` | Skill siap unggah |
-| `examples/` | Studi kasus: contoh keluaran skill |
+| `examples/` | Studi kasus: contoh keluaran dan peragaan skill |
 | `evals/` | Kasus uji dan cara menguji skill |
 | `scripts/` | Pemutakhiran referensi, pemeriksa keluaran, pembuat zip |
 | `MAINTAINING.md` | Prosedur saat Anthropic memperbarui dokumen atau merilis model baru |
