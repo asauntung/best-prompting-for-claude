@@ -1,0 +1,99 @@
+{
+  "_petunjuk": "Daftar sisipan [CATATAN LOKAL]. Setiap sisipan dipasang tepat di bawah baris judul (heading) yang ditulis persis sama dengan dokumen asli. Jika Anthropic mengganti judul bagian, skrip update_references.py akan berhenti dan menyebut sisipan mana yang tidak menemukan tempatnya.",
+  "notes": [
+    {
+      "file": "prompting-best-practices.md",
+      "heading": "### Tool usage",
+      "text": [
+        "**[CATATAN LOKAL] Paragraf terakhir bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**",
+        "Bagian ini berada di bawah payung teknik untuk semua model terkini, tetapi paragraf tentang overtriggering dan pengenduran bahasa berintensitas tinggi menyebut Claude Opus 4.5 dan Claude Opus 4.6 secara eksplisit. Paragraf-paragraf sebelumnya bersifat umum. Untuk Claude Sonnet 5, lihat `prompting-claude-sonnet-5.md > Tool use triggering`.",
+        "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
+      ]
+    },
+    {
+      "file": "prompting-best-practices.md",
+      "heading": "### Overthinking and excessive thoroughness",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.6, bukan untuk model target skill ini.**",
+        "Panduan yang setara untuk model target: `prompting-claude-opus-5-5.md > Calibrate effort`, `prompting-claude-opus-5.md > Task scope and over-verification` dan `> Self-correction`, `prompting-claude-sonnet-5.md > Calibrating effort and thinking depth`, serta `prompting-claude-fable-5-1.md > Consider all effort levels`.",
+        "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
+      ]
+    },
+    {
+      "file": "prompting-best-practices.md",
+      "heading": "### Balancing autonomy and safety",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini menyebut Claude Opus 4.6 secara eksplisit, bukan model target skill ini.**",
+        "Untuk keluarga Fable, panduan yang setara ada di `prompting-claude-fable-5.md > State the boundaries`. Untuk Claude Opus 5.5 yang berjalan tanpa diawasi, lihat `prompting-claude-opus-5-5.md > Unattended agentic runs`.",
+        "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
+      ]
+    },
+    {
+      "file": "prompting-best-practices.md",
+      "heading": "### Subagent orchestration",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini ditulis berdasarkan perilaku model generasi sebelumnya.**",
+        "Anjuran membiarkan model mengorkestrasi secara alami tanpa instruksi eksplisit bertentangan dengan `prompting-claude-opus-5.md > Controlling subagent spawning`, yang meminta pengereman eksplisit, dan dengan `prompting-claude-fable-5.md > Parallel subagents`, yang meminta pemakaian lebih sering. Untuk Claude Fable 5.1, lihat juga `prompting-claude-fable-5-1.md > Let the lead agent keep working while subagents run`. Panduan model menang untuk model yang sedang dituju.",
+        "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
+      ]
+    },
+    {
+      "file": "prompting-best-practices.md",
+      "heading": "### Overeagerness",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**",
+        "Panduan yang setara untuk model target: `prompting-claude-opus-5.md > Task scope and over-verification`, `prompting-claude-fable-5.md > Consider all effort levels`, dan `prompting-claude-fable-5-1.md > Keep changes and tests to what the task asks for`.",
+        "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
+      ]
+    },
+    {
+      "file": "prompting-best-practices.md",
+      "heading": "### Improved vision capabilities",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**",
+        "Kemampuan vision model target dijelaskan di panduan masing-masing: `prompting-claude-opus-5-5.md > Tools for complex visual inputs`, `prompting-claude-fable-5-1.md > Give vision work tools to crop and zoom`, serta bagian Capability improvements di panduan Opus 5 dan Fable 5. Workaround lama mungkin sudah tidak diperlukan.",
+        "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
+      ]
+    },
+    {
+      "file": "prompting-best-practices.md",
+      "heading": "### Frontend design",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**",
+        "Panduan desain yang berlaku untuk model target: `prompting-claude-sonnet-5.md > Design and frontend defaults` dan `prompting-claude-opus-5-5.md > Frontend design defaults`.",
+        "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
+      ]
+    },
+    {
+      "file": "increase-output-consistency.md",
+      "heading": "## Prefill Claude's response",
+      "text": [
+        "**[CATATAN LOKAL] Teknik di bagian ini sudah tidak berfungsi untuk model target skill ini. Jangan pernah menyarankan prefill.**",
+        "Prefill pada giliran assistant terakhir mengembalikan error 400 pada Claude 4.6 ke atas, yang mencakup Claude Sonnet 5, Claude Opus 5, Claude Opus 5.5, Claude Fable 5, dan Claude Fable 5.1. Contoh di bawah dipertahankan apa adanya sebagai arsip, bukan sebagai resep.",
+        "Penggantinya ada di `prompting-best-practices.md > Migrating away from prefilled responses`: instruksi langsung untuk menghapus preamble, keluaran dibungkus tag XML, atau Structured Outputs dan tool calling bagi pengguna API."
+      ]
+    },
+    {
+      "file": "reduce-prompt-leak.md",
+      "heading": "## Strategies to reduce prompt leak",
+      "text": [
+        "**[CATATAN LOKAL]** Kalimat tentang prefilling `Assistant` turn pada butir pertama, dan blok `Assistant (prefill)` pada contohnya, tidak berfungsi pada model target skill ini. Sisa strategi di bagian ini tetap berlaku."
+      ]
+    },
+    {
+      "file": "prompting-claude-fable-5-1.md",
+      "heading": "## Batch independent tool calls in agent loops",
+      "text": [
+        "**[CATATAN LOKAL] Sebagian besar bagian ini adalah mekanik API.**",
+        "Yang relevan bagi pengguna chat, Cowork, dan Claude Code hanya paragraf pertama beserta kalimat nudge di blok `text` sesudahnya. Penempatan turn-scoped system message dan contoh kode panjang (Python, TypeScript, dan bahasa lain) setelahnya hanya bisa dijalankan lewat API: cukup dibaca sekilas, jangan dijadikan isi prompt."
+      ]
+    },
+    {
+      "file": "prompting-claude-fable-5-1.md",
+      "heading": "## Keep the conversation history append-only",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini adalah mekanik API** (riwayat percakapan, thinking block, prompt cache, compaction). Pengguna chat, Cowork, dan Claude Code tidak mengendalikannya dari prompt."
+      ]
+    }
+  ]
+}
