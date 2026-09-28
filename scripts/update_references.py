@@ -31,6 +31,7 @@ DOCS = "https://platform.claude.com/docs/en/"
 
 # (nama file lokal, path halaman, folder tujuan)
 PAGES = [
+    ("prompting-claude-sonnet-5-5.md", "build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5", SKILL_REFS),
     ("prompting-claude-sonnet-5.md", "build-with-claude/prompt-engineering/prompting-claude-sonnet-5", SKILL_REFS),
     ("prompting-claude-opus-5-5.md", "build-with-claude/prompt-engineering/prompting-claude-opus-5-5", SKILL_REFS),
     ("prompting-claude-opus-5.md", "build-with-claude/prompt-engineering/prompting-claude-opus-5", SKILL_REFS),

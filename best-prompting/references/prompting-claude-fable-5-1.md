@@ -3,14 +3,14 @@ title: Prompting Claude Fable 5.1
 url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1
 description: Behavioral differences and prompting patterns for Claude Fable 5.1 and Claude Mythos 5.1, covering effort, progress updates, tool-call batching, conversation history, writing style, formatting, task completion, compaction summaries, scope and test coverage, search triggering, safeguard false positives, file edits, long outputs, subagents, and vision.
 publisher: Anthropic
-retrieved: 2026-09-26
+retrieved: 2026-09-28
 local_notes: 2
 ---
 
 # Prompting Claude Fable 5.1
 
 > [!IMPORTANT]
-> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-26. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Ada 2 sisipan berlabel `[CATATAN LOKAL]` dari pengelola repo ini; sisipan itu bukan bagian dokumen asli. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
+> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-28. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Ada 2 sisipan berlabel `[CATATAN LOKAL]` dari pengelola repo ini; sisipan itu bukan bagian dokumen asli. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
 
 For the model's capabilities, API changes, pricing, and availability, see [What's new in Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1). For techniques that apply across Claude models, see [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices).
 

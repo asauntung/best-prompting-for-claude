@@ -6,7 +6,7 @@
       "heading": "### Tool usage",
       "text": [
         "**[CATATAN LOKAL] Paragraf terakhir bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**",
-        "Bagian ini berada di bawah payung teknik untuk semua model terkini, tetapi paragraf tentang overtriggering dan pengenduran bahasa berintensitas tinggi menyebut Claude Opus 4.5 dan Claude Opus 4.6 secara eksplisit. Paragraf-paragraf sebelumnya bersifat umum. Untuk Claude Sonnet 5, lihat `prompting-claude-sonnet-5.md > Tool use triggering`.",
+        "Bagian ini berada di bawah payung teknik untuk semua model terkini, tetapi paragraf tentang overtriggering dan pengenduran bahasa berintensitas tinggi menyebut Claude Opus 4.5 dan Claude Opus 4.6 secara eksplisit. Paragraf-paragraf sebelumnya bersifat umum. Untuk Claude Sonnet 5, lihat `prompting-claude-sonnet-5.md > Tool use triggering`. Untuk Claude Sonnet 5.5, lihat `prompting-claude-sonnet-5-5.md > Tool use in chat and knowledge work`.",
         "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
       ]
     },
@@ -15,7 +15,7 @@
       "heading": "### Overthinking and excessive thoroughness",
       "text": [
         "**[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.6, bukan untuk model target skill ini.**",
-        "Panduan yang setara untuk model target: `prompting-claude-opus-5-5.md > Calibrate effort`, `prompting-claude-opus-5.md > Task scope and over-verification` dan `> Self-correction`, `prompting-claude-sonnet-5.md > Calibrating effort and thinking depth`, serta `prompting-claude-fable-5-1.md > Consider all effort levels`.",
+        "Panduan yang setara untuk model target: `prompting-claude-opus-5-5.md > Calibrate effort`, `prompting-claude-opus-5.md > Task scope and over-verification` dan `> Self-correction`, `prompting-claude-sonnet-5.md > Calibrating effort and thinking depth`, `prompting-claude-sonnet-5-5.md > Calibrate effort` dan `> Steer initiative and scope`, serta `prompting-claude-fable-5-1.md > Consider all effort levels`.",
         "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
       ]
     },
@@ -42,7 +42,7 @@
       "heading": "### Overeagerness",
       "text": [
         "**[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**",
-        "Panduan yang setara untuk model target: `prompting-claude-opus-5.md > Task scope and over-verification`, `prompting-claude-fable-5.md > Consider all effort levels`, dan `prompting-claude-fable-5-1.md > Keep changes and tests to what the task asks for`.",
+        "Panduan yang setara untuk model target: `prompting-claude-opus-5.md > Task scope and over-verification`, `prompting-claude-sonnet-5-5.md > Steer initiative and scope`, `prompting-claude-fable-5.md > Consider all effort levels`, dan `prompting-claude-fable-5-1.md > Keep changes and tests to what the task asks for`.",
         "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
       ]
     },
@@ -51,7 +51,7 @@
       "heading": "### Improved vision capabilities",
       "text": [
         "**[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**",
-        "Kemampuan vision model target dijelaskan di panduan masing-masing: `prompting-claude-opus-5-5.md > Tools for complex visual inputs`, `prompting-claude-fable-5-1.md > Give vision work tools to crop and zoom`, serta bagian Capability improvements di panduan Opus 5 dan Fable 5. Workaround lama mungkin sudah tidak diperlukan.",
+        "Kemampuan vision model target dijelaskan di panduan masing-masing: `prompting-claude-opus-5-5.md > Tools for complex visual inputs`, `prompting-claude-sonnet-5-5.md > Tools for complex visual inputs`, `prompting-claude-fable-5-1.md > Give vision work tools to crop and zoom`, serta bagian Capability improvements di panduan Opus 5 dan Fable 5. Workaround lama mungkin sudah tidak diperlukan.",
         "Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai."
       ]
     },
@@ -69,7 +69,7 @@
       "heading": "## Prefill Claude's response",
       "text": [
         "**[CATATAN LOKAL] Teknik di bagian ini sudah tidak berfungsi untuk model target skill ini. Jangan pernah menyarankan prefill.**",
-        "Prefill pada giliran assistant terakhir mengembalikan error 400 pada Claude 4.6 ke atas, yang mencakup Claude Sonnet 5, Claude Opus 5, Claude Opus 5.5, Claude Fable 5, dan Claude Fable 5.1. Contoh di bawah dipertahankan apa adanya sebagai arsip, bukan sebagai resep.",
+        "Prefill pada giliran assistant terakhir mengembalikan error 400 pada Claude 4.6 ke atas, yang mencakup Claude Sonnet 5, Claude Sonnet 5.5, Claude Opus 5, Claude Opus 5.5, Claude Fable 5, dan Claude Fable 5.1. Contoh di bawah dipertahankan apa adanya sebagai arsip, bukan sebagai resep.",
         "Penggantinya ada di `prompting-best-practices.md > Migrating away from prefilled responses`: instruksi langsung untuk menghapus preamble, keluaran dibungkus tag XML, atau Structured Outputs dan tool calling bagi pengguna API."
       ]
     },
@@ -93,6 +93,27 @@
       "heading": "## Keep the conversation history append-only",
       "text": [
         "**[CATATAN LOKAL] Bagian ini adalah mekanik API** (riwayat percakapan, thinking block, prompt cache, compaction). Pengguna chat, Cowork, dan Claude Code tidak mengendalikannya dari prompt."
+      ]
+    },
+    {
+      "file": "prompting-claude-sonnet-5-5.md",
+      "heading": "## Running without up-front thinking",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini adalah mekanik API** (parameter `thinking`, `between_tools`, blok thinking). Pengguna chat, Cowork, dan Claude Code tidak mengendalikannya dari prompt. Satu hal yang tetap relevan untuk isi prompt: jangan menulis instruksi yang melarang model berpikir."
+      ]
+    },
+    {
+      "file": "prompting-claude-sonnet-5-5.md",
+      "heading": "## Mid-turn user messages",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini ditujukan untuk pembangun harness** (penempatan pesan di antara hasil tool, countdown token, task budget). Pengguna chat, Cowork, dan Claude Code tidak mengendalikannya dari prompt."
+      ]
+    },
+    {
+      "file": "prompting-claude-sonnet-5-5.md",
+      "heading": "## Tolerant tool-call handling",
+      "text": [
+        "**[CATATAN LOKAL] Bagian ini adalah mekanik harness API** (penanganan nama tool dan parameter). Tidak relevan untuk isi prompt."
       ]
     }
   ]

@@ -3,14 +3,14 @@ title: Prompting Claude Fable 5
 url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5
 description: Behavioral differences and prompting patterns for Claude Fable 5 and Claude Mythos 5, covering effort, instruction following, long runs, memory, and scaffolding changes.
 publisher: Anthropic
-retrieved: 2026-09-26
+retrieved: 2026-09-28
 local_notes: 0
 ---
 
 # Prompting Claude Fable 5
 
 > [!IMPORTANT]
-> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-26. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Tidak ada sisipan lain di file ini. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
+> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-28. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Tidak ada sisipan lain di file ini. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
 
 This guide covers the prompting and scaffolding patterns specific to Claude Fable 5 and Claude Mythos 5. For the model's capabilities, API changes, pricing, and availability, see [Introducing Claude Fable 5 and Claude Mythos 5](https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5). For techniques that apply across all current Claude models, see [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices).
 

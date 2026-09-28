@@ -3,14 +3,14 @@ title: Prompting Claude Opus 5.5
 url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5
 description: "Behavioral differences from Claude Opus 5 and the prompting and harness patterns that address them: effort calibration, thinking behavior in API integrations and chat, progress updates, unattended and multiagent tasks, safeguard refusals, frontend design, complex visual inputs, multi-app workflows, and pasted text in user messages."
 publisher: Anthropic
-retrieved: 2026-09-26
+retrieved: 2026-09-28
 local_notes: 0
 ---
 
 # Prompting Claude Opus 5.5
 
 > [!IMPORTANT]
-> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-26. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Tidak ada sisipan lain di file ini. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
+> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-28. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Tidak ada sisipan lain di file ini. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
 
 This guide covers the prompting patterns specific to Claude Opus 5.5. For the model's capabilities and API changes, see [What's new in Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5). For techniques that apply across all current Claude models, see [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices).
 

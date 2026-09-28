@@ -3,14 +3,14 @@ title: Reduce hallucinations
 url: https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations
 description: Minimize hallucinations in Claude's outputs by allowing uncertainty, grounding responses in direct quotes, and verifying claims with citations.
 publisher: Anthropic
-retrieved: 2026-09-26
+retrieved: 2026-09-28
 local_notes: 0
 ---
 
 # Reduce hallucinations
 
 > [!IMPORTANT]
-> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-26. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Tidak ada sisipan lain di file ini. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
+> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-28. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Tidak ada sisipan lain di file ini. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
 
 Even the most advanced language models, like Claude, can sometimes generate text that is factually incorrect or inconsistent with the given context. This phenomenon, known as "hallucination," can undermine the reliability of your AI-driven solutions. This guide will explore techniques to minimize hallucinations and ensure Claude's outputs are accurate and trustworthy.
 

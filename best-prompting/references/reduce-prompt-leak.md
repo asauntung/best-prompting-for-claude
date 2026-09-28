@@ -3,14 +3,14 @@ title: Reduce prompt leak
 url: https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak
 description: Reduce the risk of prompt leaks by separating context from user queries, filtering Claude's outputs, and auditing prompts, without degrading task performance.
 publisher: Anthropic
-retrieved: 2026-09-26
+retrieved: 2026-09-28
 local_notes: 1
 ---
 
 # Reduce prompt leak
 
 > [!IMPORTANT]
-> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-26. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Ada 1 sisipan berlabel `[CATATAN LOKAL]` dari pengelola repo ini; sisipan itu bukan bagian dokumen asli. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
+> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-28. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Ada 1 sisipan berlabel `[CATATAN LOKAL]` dari pengelola repo ini; sisipan itu bukan bagian dokumen asli. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
 
 Prompt leaks can expose sensitive information that you expect to be "hidden" in your prompt. While no method is foolproof, the strategies below can significantly reduce the risk.
 

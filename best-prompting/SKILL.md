@@ -1,6 +1,6 @@
 ---
 name: best-prompting
-description: Menyusun prompt baru atau menyempurnakan prompt yang sudah ada untuk Claude di chat (claude.ai), Cowork, atau Claude Code, khusus model Claude Sonnet 5, Opus 5.5, dan Fable 5.1, dengan dokumen resmi Anthropic di references/ sebagai satu-satunya ground truth. Gunakan setiap kali pengguna memanggil /best-prompting, meminta dibuatkan prompt atau system prompt untuk Claude, atau menempel prompt untuk diperbaiki. Bukan untuk prompt pembuat gambar atau video (Nano Banana, Midjourney, dan sejenisnya), dan bukan untuk model non-Claude.
+description: Menyusun prompt baru atau menyempurnakan prompt yang sudah ada untuk Claude di chat (claude.ai), Cowork, atau Claude Code, khusus model Claude Sonnet 5, Sonnet 5.5, Opus 5.5, dan Fable 5.1, dengan dokumen resmi Anthropic di references/ sebagai satu-satunya ground truth. Gunakan setiap kali pengguna memanggil /best-prompting, meminta dibuatkan prompt atau system prompt untuk Claude, atau menempel prompt untuk diperbaiki. Bukan untuk prompt pembuat gambar atau video (Nano Banana, Midjourney, dan sejenisnya), dan bukan untuk model non-Claude.
 ---
 
 # /best-prompting
@@ -14,6 +14,7 @@ Tabel ini satu-satunya tempat daftar model ditulis. Saat Anthropic merilis model
 | Nama di baris Final | Panduan model | Panduan induk |
 |---|---|---|
 | `Sonnet 5` | `prompting-claude-sonnet-5.md` | tidak ada |
+| `Sonnet 5.5` | `prompting-claude-sonnet-5-5.md` | `prompting-claude-sonnet-5.md` |
 | `Opus 5.5` | `prompting-claude-opus-5-5.md` | `prompting-claude-opus-5.md` |
 | `Fable 5.1` | `prompting-claude-fable-5-1.md` | `prompting-claude-fable-5.md` |
 
@@ -35,7 +36,8 @@ Isi `references/`:
 
 | File | Peran |
 |---|---|
-| `prompting-claude-sonnet-5.md` | Panduan model: Sonnet 5 |
+| `prompting-claude-sonnet-5.md` | Panduan model: Sonnet 5, sekaligus induk Sonnet 5.5 |
+| `prompting-claude-sonnet-5-5.md` | Panduan model: Sonnet 5.5 |
 | `prompting-claude-opus-5-5.md` | Panduan model: Opus 5.5 |
 | `prompting-claude-opus-5.md` | Induk Opus 5.5 |
 | `prompting-claude-fable-5-1.md` | Panduan model: Fable 5.1 |
@@ -72,7 +74,7 @@ Skill butuh tiga parameter: ekosistem, model, dan effort.
 
 Referensi ditulis untuk developer API dan membahas jenis kerja, jarang menyebut nama produk. Petakan sebagai berikut, dan cari bagian yang relevan di SEMUA file:
 
-- **Chat**: percakapan di claude.ai atau aplikasi Claude, termasuk instruksi Project. Referensi menyebutnya eksplisit, misalnya "Thinking instructions in chat system prompts" dan "Mark pasted text in user messages" di panduan Opus 5.5, serta "Formatting in chat" di panduan Fable 5.1.
+- **Chat**: percakapan di claude.ai atau aplikasi Claude, termasuk instruksi Project. Referensi menyebutnya eksplisit, misalnya "Thinking instructions in chat system prompts" dan "Mark pasted text in user messages" di panduan Opus 5.5, "Formatting in chat" di panduan Fable 5.1, serta "Tool use in chat and knowledge work" di panduan Sonnet 5.5.
 - **Claude Code**: kerja agentik berbasis file dan folder, termasuk yang bukan coding (riset, pengolahan teks, penambangan data). Referensi menyebut Claude Code di `prompting-best-practices.md` (bagian context awareness dan multiwindow workflows) dan di `prompting-claude-opus-5.md > Controlling subagent spawning`, dan membahas panjang kerja agentik di bagian "Agentic systems" serta panduan tiap model.
 - **Cowork**: nama ini tidak ada di referensi. Pemetaannya ke kerja agentik lintas aplikasi, kerja tanpa diawasi, riset, dan pengolahan konten pihak ketiga adalah **[Inferensi]** dan harus diberi label itu di analisis. Bagian yang relevan antara lain "Explore context in multi-app workflows" dan "Unattended agentic runs" di panduan Opus 5.5, bagian riset dan otonomi di `prompting-best-practices.md`, serta bagian indirect prompt injection di `mitigate-jailbreaks-and-prompt-injections.md`.
 

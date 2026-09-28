@@ -3,36 +3,37 @@ title: Prompting best practices
 url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices
 description: Comprehensive guide to prompt engineering techniques for Claude's latest models, covering clarity, examples, XML structuring, thinking, and agentic systems.
 publisher: Anthropic
-retrieved: 2026-09-26
+retrieved: 2026-09-28
 local_notes: 7
 ---
 
 # Prompting best practices
 
 > [!IMPORTANT]
-> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-26. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Ada 7 sisipan berlabel `[CATATAN LOKAL]` dari pengelola repo ini; sisipan itu bukan bagian dokumen asli. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
+> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-28. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Ada 7 sisipan berlabel `[CATATAN LOKAL]` dari pengelola repo ini; sisipan itu bukan bagian dokumen asli. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
 
-This is the reference for prompt engineering with current Claude models, including Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5.5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 5, Claude Sonnet 4.6, and Claude Haiku 4.5. The page is organized in three parts:
+This is the reference for prompt engineering with current Claude models, including Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, Claude Opus 5.5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 5.5, Claude Sonnet 5, Claude Sonnet 4.6, and Claude Haiku 4.5. The page is organized in three parts:
 
 * **[Model-specific guidance](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#model-specific-guidance)** first: where a single model behaves differently and what to change in your prompt.
 * **Techniques for all current models** after that: general principles, output and formatting, tool use, thinking, and agentic systems.
 * **Migration considerations** last, for prompts moving from earlier generations.
 
 > [!TIP]
-> For an overview of model capabilities, see the [models overview](https://platform.claude.com/docs/en/models/overview). For Claude Fable 5.1 capabilities and API changes, see [What's new in Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1). For Claude Fable 5 capabilities and API changes, see [Introducing Claude Fable 5 and Claude Mythos 5](https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5). For details on what's new in Claude Sonnet 5, see [What's new in Claude Sonnet 5](https://platform.claude.com/docs/en/models/sonnet-5/whats-new-sonnet-5). For migration guidance, see the [Migration guide](https://platform.claude.com/docs/en/about-claude/models/migration-guide). For Claude Opus 5.5, see [What's new in Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5).
+> For an overview of model capabilities, see the [models overview](https://platform.claude.com/docs/en/models/overview). For Claude Fable 5.1 capabilities and API changes, see [What's new in Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1). For Claude Fable 5 capabilities and API changes, see [Introducing Claude Fable 5 and Claude Mythos 5](https://platform.claude.com/docs/en/models/fable-5/introducing-claude-fable-5-and-claude-mythos-5). For details on what's new in Claude Sonnet 5, see [What's new in Claude Sonnet 5](https://platform.claude.com/docs/en/models/sonnet-5/whats-new-sonnet-5). For migration guidance, see the [Migration guide](https://platform.claude.com/docs/en/about-claude/models/migration-guide). For Claude Opus 5.5, see [What's new in Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5). For Claude Sonnet 5.5, see [What's new in Claude Sonnet 5.5](https://platform.claude.com/docs/en/models/sonnet-5-5/whats-new-sonnet-5-5).
 
 ## Model-specific guidance
 
 Each of these models has its own prompting page. Read the one for your model first, then the techniques that follow.
 
-| Model                                  | Guide                                                                                                                             | What's different                                                                                                                                                                                                                                 |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Claude Fable 5.1 and Claude Mythos 5.1 | [Prompting Claude Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1) | Differences from Claude Fable 5: effort levels, finishing long tasks, user-facing progress updates, passing thinking blocks back unchanged, tool-call batching in agent loops, search triggering at low effort, formatting, and writing density. |
-| Claude Fable 5 and Claude Mythos 5     | [Prompting Claude Fable 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5)     | Differences from Claude Opus 4.8: effort levels, instruction following, long-run progress claims, memory systems, and the `reasoning_extraction` refusal category.                                                                               |
-| Claude Sonnet 5                        | [Prompting Claude Sonnet 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5)   | Differences from Claude Sonnet 4.6: response length, effort and thinking-depth calibration, tool use triggering, literal instruction following, and design and frontend defaults.                                                                |
-| Claude Opus 5.5                        | [Prompting Claude Opus 5.5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5)   | Differences from Claude Opus 5: effort calibration, prompts written for thinking disabled, user-facing progress updates, safeguard false positives, and tools for complex visual inputs.                                                         |
-| Claude Opus 5                          | [Prompting Claude Opus 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5)       | Differences from prior Opus models: response length and verbosity, user-facing progress updates, written deliverable length, task scope and over-verification, subagent control, and self-correction.                                            |
-| Claude Opus 4.8                        | [Prompting Claude Opus 4.8](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-4-8)   | Response length, effort and thinking-depth calibration, tool use triggering, literal instruction following, subagent control, and design and frontend defaults.                                                                                  |
+| Model                                  | Guide                                                                                                                               | What's different                                                                                                                                                                                                                                                                                                        |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Claude Fable 5.1 and Claude Mythos 5.1 | [Prompting Claude Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1)   | Differences from Claude Fable 5: effort levels, finishing long tasks, user-facing progress updates, passing thinking blocks back unchanged, tool-call batching in agent loops, search triggering at low effort, formatting, and writing density.                                                                        |
+| Claude Fable 5 and Claude Mythos 5     | [Prompting Claude Fable 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5)       | Differences from Claude Opus 4.8: effort levels, instruction following, long-run progress claims, memory systems, and the `reasoning_extraction` refusal category.                                                                                                                                                      |
+| Claude Sonnet 5.5                      | [Prompting Claude Sonnet 5.5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5) | Differences from Claude Sonnet 5: effort calibration, initiative and scope, running without up-front thinking, JSON output on reasoning tasks, user-facing progress updates, tool use in chat, mid-turn user messages, verification on coding tasks, tool-call handling, complex visual inputs, and safeguard refusals. |
+| Claude Sonnet 5                        | [Prompting Claude Sonnet 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5)     | Differences from Claude Sonnet 4.6: response length, effort and thinking-depth calibration, tool use triggering, literal instruction following, and design and frontend defaults.                                                                                                                                       |
+| Claude Opus 5.5                        | [Prompting Claude Opus 5.5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5-5)     | Differences from Claude Opus 5: effort calibration, prompts written for thinking disabled, user-facing progress updates, safeguard false positives, and tools for complex visual inputs.                                                                                                                                |
+| Claude Opus 5                          | [Prompting Claude Opus 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5)         | Differences from prior Opus models: response length and verbosity, user-facing progress updates, written deliverable length, task scope and over-verification, subagent control, and self-correction.                                                                                                                   |
+| Claude Opus 4.8                        | [Prompting Claude Opus 4.8](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-4-8)     | Response length, effort and thinking-depth calibration, tool use triggering, literal instruction following, subagent control, and design and frontend defaults.                                                                                                                                                         |
 
 ## General principles
 
@@ -472,7 +473,7 @@ Prefills were used to periodically ensure refreshed or injected context.
 
 > **[CATATAN LOKAL] Paragraf terakhir bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**
 >
-> Bagian ini berada di bawah payung teknik untuk semua model terkini, tetapi paragraf tentang overtriggering dan pengenduran bahasa berintensitas tinggi menyebut Claude Opus 4.5 dan Claude Opus 4.6 secara eksplisit. Paragraf-paragraf sebelumnya bersifat umum. Untuk Claude Sonnet 5, lihat `prompting-claude-sonnet-5.md > Tool use triggering`.
+> Bagian ini berada di bawah payung teknik untuk semua model terkini, tetapi paragraf tentang overtriggering dan pengenduran bahasa berintensitas tinggi menyebut Claude Opus 4.5 dan Claude Opus 4.6 secara eksplisit. Paragraf-paragraf sebelumnya bersifat umum. Untuk Claude Sonnet 5, lihat `prompting-claude-sonnet-5.md > Tool use triggering`. Untuk Claude Sonnet 5.5, lihat `prompting-claude-sonnet-5-5.md > Tool use in chat and knowledge work`.
 >
 > Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai.
 
@@ -563,7 +564,7 @@ On Claude Fable 5.1 in long agent loops, send the parallel-calls instruction as 
 
 > **[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.6, bukan untuk model target skill ini.**
 >
-> Panduan yang setara untuk model target: `prompting-claude-opus-5-5.md > Calibrate effort`, `prompting-claude-opus-5.md > Task scope and over-verification` dan `> Self-correction`, `prompting-claude-sonnet-5.md > Calibrating effort and thinking depth`, serta `prompting-claude-fable-5-1.md > Consider all effort levels`.
+> Panduan yang setara untuk model target: `prompting-claude-opus-5-5.md > Calibrate effort`, `prompting-claude-opus-5.md > Task scope and over-verification` dan `> Self-correction`, `prompting-claude-sonnet-5.md > Calibrating effort and thinking depth`, `prompting-claude-sonnet-5-5.md > Calibrate effort` dan `> Steer initiative and scope`, serta `prompting-claude-fable-5-1.md > Consider all effort levels`.
 >
 > Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai.
 
@@ -815,7 +816,7 @@ client.messages.create(
 )
 ```
 
-If you are not using extended thinking, no changes are required. On Claude Opus 4.6 through Claude Opus 4.8 and Claude Sonnet 4.6, thinking is off when you omit the `thinking` parameter. On Claude Opus 5 and Claude Sonnet 5, thinking is on by default when you omit the `thinking` parameter. On Claude Opus 5, you can disable it only at effort `high` or lower. On Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, and Claude Opus 5.5, thinking is always on, regardless of whether you set the `thinking` parameter.
+If you are not using extended thinking, no changes are required. On Claude Opus 4.6 through Claude Opus 4.8 and Claude Sonnet 4.6, thinking is off when you omit the `thinking` parameter. On Claude Opus 5, Claude Sonnet 5.5, and Claude Sonnet 5, thinking is on by default when you omit the `thinking` parameter. On Claude Opus 5, you can disable it only at effort `high` or lower. On Claude Sonnet 5.5, the lowest thinking setting is `between_tools`, accepted at effort `high` or lower. On Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, Claude Mythos 5, and Claude Opus 5.5, thinking is always on, regardless of whether you set the `thinking` parameter.
 
 * **Prefer general instructions over prescriptive steps.** A prompt like "think thoroughly" often produces better reasoning than a hand-written step-by-step plan. Claude's reasoning frequently exceeds what a human would prescribe.
 * **Multishot examples work with thinking.** Use `<thinking>` tags inside your few-shot examples to show Claude the reasoning pattern. It will generalize that style to its own extended thinking blocks.
@@ -1009,7 +1010,7 @@ these files by removing them at the end of the task.
 
 > **[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**
 >
-> Panduan yang setara untuk model target: `prompting-claude-opus-5.md > Task scope and over-verification`, `prompting-claude-fable-5.md > Consider all effort levels`, dan `prompting-claude-fable-5-1.md > Keep changes and tests to what the task asks for`.
+> Panduan yang setara untuk model target: `prompting-claude-opus-5.md > Task scope and over-verification`, `prompting-claude-sonnet-5-5.md > Steer initiative and scope`, `prompting-claude-fable-5.md > Consider all effort levels`, dan `prompting-claude-fable-5-1.md > Keep changes and tests to what the task asks for`.
 >
 > Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai.
 
@@ -1077,7 +1078,7 @@ hallucination-free answers.
 
 > **[CATATAN LOKAL] Bagian ini spesifik untuk Claude Opus 4.5 dan Claude Opus 4.6, bukan untuk model target skill ini.**
 >
-> Kemampuan vision model target dijelaskan di panduan masing-masing: `prompting-claude-opus-5-5.md > Tools for complex visual inputs`, `prompting-claude-fable-5-1.md > Give vision work tools to crop and zoom`, serta bagian Capability improvements di panduan Opus 5 dan Fable 5. Workaround lama mungkin sudah tidak diperlukan.
+> Kemampuan vision model target dijelaskan di panduan masing-masing: `prompting-claude-opus-5-5.md > Tools for complex visual inputs`, `prompting-claude-sonnet-5-5.md > Tools for complex visual inputs`, `prompting-claude-fable-5-1.md > Give vision work tools to crop and zoom`, serta bagian Capability improvements di panduan Opus 5 dan Fable 5. Workaround lama mungkin sudah tidak diperlukan.
 >
 > Perlakukan sebagai indikatif dan periksa silang dengan panduan model yang sedang dituju sebelum dipakai.
 
@@ -1154,19 +1155,21 @@ When migrating to current Claude models from earlier generations:
 
 6. **Tune anti-laziness prompting:** If your prompts previously encouraged the model to be more thorough or use tools more aggressively, dial back that guidance. Claude 4.6 models are more proactive and may overtrigger on instructions that were needed for previous models.
 
-7. **Pass thinking blocks back unchanged and keep history append-only:** Append each assistant turn exactly as the API returned it, thinking blocks included. On Claude Fable 5.1 and Claude Opus 5.5, [modifying the conversation before a thinking block](https://platform.claude.com/docs/en/build-with-claude/thinking#preserved-in-conversation) results in an error, or in the block being dropped if you opt into that: editing earlier messages, rebuilding `system` or `tools`, or summarizing older turns in place between requests invalidates every later thinking block, so move those changes to mid-conversation system messages and server-side context management. See [Keep the conversation history append-only](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1#keep-the-conversation-history-append-only).
+7. **Pass thinking blocks back unchanged and keep history append-only:** Append each assistant turn exactly as the API returned it, thinking blocks included. On Claude Fable 5.1, Claude Opus 5.5, and Claude Sonnet 5.5, [modifying the conversation before a thinking block](https://platform.claude.com/docs/en/build-with-claude/thinking#preserved-in-conversation) results in an error, or in the block being dropped if you opt into that: editing earlier messages, rebuilding `system` or `tools`, or summarizing older turns in place between requests invalidates every later thinking block, so move those changes to mid-conversation system messages and server-side context management. See [Keep the conversation history append-only](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1#keep-the-conversation-history-append-only).
 
 For detailed migration steps, see the [Migration guide](https://platform.claude.com/docs/en/about-claude/models/migration-guide).
 
-### Migrating to Claude Sonnet 5 from Claude Sonnet 4.5 or earlier
+### Migrating to Claude Sonnet 5.5
 
-See [Migrating to Claude Sonnet 5 from Claude Sonnet 4.5 or earlier](https://platform.claude.com/docs/en/models/sonnet-5/migration-guide#migrating-from-sonnet-45) in the migration guide, which covers the effort default change and the removal of manual extended thinking (`budget_tokens`).
+See the [Claude Sonnet 5.5 migration guide](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide). It covers the breaking changes for code written for Claude Sonnet 5 and the steps from Claude Sonnet 4.6 and earlier, including the removal of manual extended thinking (`budget_tokens`).
 
 ## Next steps
 
 - **[Prompting Claude Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1)**: Behavioral differences and prompting patterns for Claude Fable 5.1, covering effort, task completion, progress updates, thinking blocks, tool-call batching, and writing style.
 
 - **[Prompting Claude Fable 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5)**: Behavioral differences and prompting patterns for Claude Fable 5 and Claude Mythos 5, covering effort, instruction following, long runs, memory, and scaffolding changes.
+
+- **[Prompting Claude Sonnet 5.5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5)**: Behavioral differences and prompting patterns for Claude Sonnet 5.5, covering effort calibration, initiative and scope, running without up-front thinking, JSON output on reasoning tasks, progress updates, tool use, mid-turn user messages, coding verification, tool-call handling, visual inputs, and safeguard refusals.
 
 - **[Prompting Claude Sonnet 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5)**: Behavioral differences and prompting patterns for Claude Sonnet 5, covering effort, adaptive thinking defaults, tool use, and migration from Claude Sonnet 4.6.
 

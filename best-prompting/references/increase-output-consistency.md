@@ -3,14 +3,14 @@ title: Increase output consistency
 url: https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency
 description: Make Claude's outputs more consistent by specifying exact formats, prefilling responses, constraining with examples, and grounding answers in retrieval.
 publisher: Anthropic
-retrieved: 2026-09-26
+retrieved: 2026-09-28
 local_notes: 1
 ---
 
 # Increase output consistency
 
 > [!IMPORTANT]
-> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-26. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Ada 1 sisipan berlabel `[CATATAN LOKAL]` dari pengelola repo ini; sisipan itu bukan bagian dokumen asli. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
+> **[CATATAN LOKAL]** Salinan dokumentasi resmi Anthropic dari URL di atas, diambil pada 2026-09-28. Kata-kata dokumen asli tidak diubah. Yang disesuaikan hanya tampilan: komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub dan judul H1 ditambahkan. Ada 1 sisipan berlabel `[CATATAN LOKAL]` dari pengelola repo ini; sisipan itu bukan bagian dokumen asli. Hak cipta isi dokumen tetap milik Anthropic. Jangan edit file ini dengan tangan: jalankan `scripts/update_references.py`.
 
 > [!TIP]
 > **For guaranteed JSON schema conformance**
@@ -69,7 +69,7 @@ You're a Customer Insights AI. Analyze this feedback and output in JSON format w
 
 > **[CATATAN LOKAL] Teknik di bagian ini sudah tidak berfungsi untuk model target skill ini. Jangan pernah menyarankan prefill.**
 >
-> Prefill pada giliran assistant terakhir mengembalikan error 400 pada Claude 4.6 ke atas, yang mencakup Claude Sonnet 5, Claude Opus 5, Claude Opus 5.5, Claude Fable 5, dan Claude Fable 5.1. Contoh di bawah dipertahankan apa adanya sebagai arsip, bukan sebagai resep.
+> Prefill pada giliran assistant terakhir mengembalikan error 400 pada Claude 4.6 ke atas, yang mencakup Claude Sonnet 5, Claude Sonnet 5.5, Claude Opus 5, Claude Opus 5.5, Claude Fable 5, dan Claude Fable 5.1. Contoh di bawah dipertahankan apa adanya sebagai arsip, bukan sebagai resep.
 >
 > Penggantinya ada di `prompting-best-practices.md > Migrating away from prefilled responses`: instruksi langsung untuk menghapus preamble, keluaran dibungkus tag XML, atau Structured Outputs dan tool calling bagi pengguna API.
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.0 (2026-09-28)
+
+- Model baru didukung: Claude Sonnet 5.5, dengan panduan `prompting-claude-sonnet-5-5.md` dan Sonnet 5 sebagai induknya.
+- Semua referensi diambil ulang per 2026-09-28. `prompting-best-practices.md` kini mencantumkan Sonnet 5.5 di tabel panduan model dan bagian migrasi.
+- Tiga `[CATATAN LOKAL]` baru di panduan Sonnet 5.5 untuk bagian yang hanya berlaku lewat API atau harness. Catatan di best practices dan output consistency kini merujuk juga ke Sonnet 5.5.
+- Ditambahkan kasus uji K13 untuk Sonnet 5.5.
+
 ## v1.1.1 (2026-09-26)
 
 - Skill diganti nama dari `prompting-claude` menjadi `best-prompting`, dipanggil dengan `/best-prompting`. Nama lama ditolak saat diunggah ke claude.ai karena kolom `name` tidak boleh memuat kata "claude" atau "anthropic".

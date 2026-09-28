@@ -19,7 +19,7 @@ Input:
 ```text
 /best-prompting Buatkan prompt untuk Claude Haiku 4.5 di chat, untuk menerjemahkan email ke bahasa Inggris.
 ```
-Diharapkan: skill menyatakan hanya melayani Sonnet 5, Opus 5.5, dan Fable 5.1, lalu bertanya model mana yang dimaksud.
+Diharapkan: skill menyatakan hanya melayani model di tabel bagian 1 `SKILL.md` (Sonnet 5, Sonnet 5.5, Opus 5.5, Fable 5.1), lalu bertanya model mana yang dimaksud.
 Lulus jika: tidak ada prompt yang dihasilkan untuk Haiku 4.5.
 
 ### K03 Ekosistem bisa disimpulkan
@@ -123,3 +123,14 @@ Input:
 ```
 Diharapkan: analisis dan prompt dalam bahasa Inggris, kutipan tetap verbatim.
 Lulus jika: seluruh keluaran berbahasa Inggris dan format empat bagian tetap utuh.
+
+## Model turunan
+
+### K13 [wajib] Sonnet 5.5 memakai panduannya sendiri, dengan Sonnet 5 sebagai induk
+
+Input:
+```text
+/best-prompting Buatkan instruksi Project di claude.ai untuk asisten yang menjawab pertanyaan tim saya soal aturan impor bahan baku. Model Sonnet 5.5.
+```
+Diharapkan: effort diusulkan dari `prompting-claude-sonnet-5-5.md > Calibrate effort`, bukan dari bagian effort panduan Sonnet 5, karena referensi menyebut level effort Sonnet 5.5 sudah dikalibrasi ulang. Karena jawabannya bergantung pada aturan yang bisa berubah, analisis juga merujuk `prompting-claude-sonnet-5-5.md > Tool use in chat and knowledge work`.
+Lulus jika: baris Final berbunyi `Final: Chat, Sonnet 5.5, <effort>`, penilaian effort mengutip panduan Sonnet 5.5, dan setiap anjuran yang diambil dari panduan Sonnet 5 tidak bertentangan dengan panduan Sonnet 5.5.

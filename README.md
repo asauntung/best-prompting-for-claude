@@ -2,7 +2,7 @@
 
 Skill `/best-prompting` untuk menyusun dan memperbaiki prompt **berdasarkan dokumentasi resmi Anthropic**, jadi ini bukan tebakan atau dari "tips viral". Setiap saran disertai kutipan langsung dari dokumen sumber, sehingga Anda bisa memeriksa sendiri dasarnya.
 
-*English summary: a Claude skill that writes or fixes prompts for Claude Sonnet 5, Opus 5.5, and Fable 5.1 (chat, Cowork, Claude Code), grounded only in Anthropic's official prompting docs bundled in `references/`, with verbatim citations for every claim. Default output language is Indonesian; it follows the user's language otherwise.*
+*English summary: a Claude skill that writes or fixes prompts for Claude Sonnet 5, Sonnet 5.5, Opus 5.5, and Fable 5.1 (chat, Cowork, Claude Code), grounded only in Anthropic's official prompting docs bundled in `references/`, with verbatim citations for every claim. Default output language is Indonesian; it follows the user's language otherwise.*
 
 ## Apa yang dilakukan skill ini
 
@@ -15,7 +15,7 @@ Panggil `/best-prompting`, lalu jelaskan kebutuhan Anda atau tempel prompt yang 
 
 | | Didukung |
 |---|---|
-| Model | Claude Sonnet 5, Claude Opus 5.5, Claude Fable 5.1 |
+| Model | Claude Sonnet 5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.1 |
 | Ekosistem | Chat (claude.ai dan aplikasi), Cowork, Claude Code |
 | Bahasa | Indonesia (default), mengikuti bahasa pengguna |
 
@@ -53,7 +53,7 @@ Sebutkan **model** (wajib) dan **ekosistem**. Effort boleh tidak disebut: skill 
 ## Batasan yang perlu Anda tahu
 
 - Skill ini sengaja hanya berpijak pada dokumen di `references/`. Kalau dokumen tidak membahas sesuatu, skill akan mengatakannya, bukan mengarang.
-- Membaca seluruh referensi (sekitar 250 KB) memakan cukup banyak token di setiap pemanggilan. Itu harga dari analisis yang bisa dipertanggungjawabkan.
+- Membaca seluruh referensi (sekitar 270 KB) memakan cukup banyak token di setiap pemanggilan. Itu harga dari analisis yang bisa dipertanggungjawabkan.
 - Dokumentasi Anthropic terus berubah. Tanggal pengambilan tercantum di header setiap file referensi dan di [`CHANGELOG.md`](CHANGELOG.md).
 - Prompt yang baik tidak menggantikan pilihan model dan effort yang tepat. Skill akan menyebut sisa risiko yang tidak bisa ditutup oleh prompt.
 
