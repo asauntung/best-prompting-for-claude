@@ -1,18 +1,18 @@
-# Atribusi dan status referensi
+# Attribution and status of the references
 
-File di folder berikut adalah salinan dokumentasi resmi Anthropic, PBC dari https://platform.claude.com/docs:
+The files in the following folders are copies of the official documentation of Anthropic, PBC, from https://platform.claude.com/docs:
 
 - `best-prompting/references/`
 - `evals/references/`
 
-Hak cipta atas isi dokumen tersebut tetap milik Anthropic. File-file itu **tidak** dilisensikan di bawah lisensi MIT repo ini. URL sumber dan tanggal pengambilan tercantum di header setiap file.
+Copyright in those documents remains with Anthropic. These files are **not** licensed under this repo's MIT license. The source URL and retrieval date are in the header of each file.
 
-Perubahan yang dilakukan pada salinan ini:
+Changes made to these copies:
 
-- Komponen situs (Note, Tip, Accordion, Card, CodeGroup) diubah ke format Markdown GitHub supaya terbaca rapi. Kata-kata dokumen tidak diubah.
-- Judul H1 dan header sumber ditambahkan.
-- Sisipan berlabel `[CATATAN LOKAL]` ditambahkan oleh pengelola repo. Sisipan itu bukan bagian dokumen asli dan tidak mewakili pandangan Anthropic.
+- Site components (Note, Tip, Accordion, Card, CodeGroup) were converted to GitHub Markdown so they render cleanly. The words of the documents were not changed.
+- An H1 title and a source header were added.
+- Insertions labeled `[LOCAL NOTE]` were added by the repo maintainer. They are not part of the original documents and do not represent Anthropic's views.
 
-Salinan disertakan supaya skill bisa bekerja dengan sumber yang sama persis bagi setiap pengguna. Jika Anthropic berkeberatan atas penyertaan ini, silakan buka issue di repo ini dan salinan akan diganti dengan tautan.
+The copies are included so the skill works from exactly the same sources for every user. If Anthropic objects to their inclusion, please open an issue in this repo and the copies will be replaced with links.
 
-Proyek ini tidak berafiliasi dengan, dan tidak didukung oleh, Anthropic. "Claude", "Sonnet", "Opus", "Fable", dan "Anthropic" adalah merek milik Anthropic.
+This project is not affiliated with or endorsed by Anthropic. "Claude", "Sonnet", "Opus", "Fable", and "Anthropic" are trademarks of Anthropic.

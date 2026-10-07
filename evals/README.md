@@ -1,28 +1,28 @@
-# Menguji skill /best-prompting
+# Testing the /best-prompting skill
 
-Tujuan folder ini: memastikan skill tetap berperilaku benar setelah referensi diperbarui, model baru ditambahkan, atau `SKILL.md` diubah. Prinsipnya mengikuti dokumen Anthropic yang disertakan di [`references/develop-tests.md`](references/develop-tests.md): tetapkan kriteria keberhasilan yang spesifik dan terukur, lalu uji dengan kasus yang mencakup situasi normal dan tepi.
+Purpose of this folder: make sure the skill keeps behaving correctly after the references are updated, a new model is added, or `SKILL.md` is changed. The approach follows the Anthropic document included at [`references/develop-tests.md`](references/develop-tests.md): define specific, measurable success criteria, then test with cases that cover both normal and edge situations.
 
-Dokumen `develop-tests.md` sengaja disimpan di sini, bukan di `best-prompting/references/`, supaya tidak ikut dibaca skill di setiap pemanggilan.
+`develop-tests.md` is deliberately kept here, not in `best-prompting/references/`, so the skill does not read it on every invocation.
 
-## Cara menjalankan
+## How to run
 
-1. Buka percakapan baru dengan skill terpasang. Satu kasus, satu percakapan.
-2. Kirim "Input" dari kasus di [`kasus-uji.md`](kasus-uji.md) apa adanya.
-3. Simpan keluaran skill ke `evals/hasil/<ID>.md` (folder ini tidak perlu di-commit).
-4. Untuk kasus yang menghasilkan prompt, jalankan pemeriksa otomatis:
+1. Open a new conversation with the skill installed. One case, one conversation.
+2. Send the "Input" of a case from [`test-cases.md`](test-cases.md) as is.
+3. Save the skill output to `evals/results/<ID>.md` (this folder does not need to be committed).
+4. For cases that produce a prompt, run the automatic checker:
 
    ```bash
-   python3 scripts/check_output.py evals/hasil/*.md
+   python3 scripts/check_output.py evals/results/*.md
    ```
 
-5. Nilai kriteria manual di tiap kasus: lulus atau gagal, dengan catatan singkat.
+5. Grade the manual criteria of each case: pass or fail, with a short note.
 
-## Dua lapis penilaian
+## Two layers of grading
 
-**Otomatis** (`scripts/check_output.py`): baris Final sah dan tepat sebelum codeblock, tepat satu codeblock `text`, tidak ada teks sesudahnya, tidak ada em-dash, tidak ada mekanik API atau prefill di prompt, rujukan `nama-file > bagian` ada dan menunjuk file yang benar-benar ada, serta peringatan kemungkinan hard wrap.
+**Automatic** (`scripts/check_output.py`): a valid Final line right before the codeblock, exactly one `text` codeblock, no text after it, no em-dashes, no API mechanics or prefill in the prompt, `file-name > section` references present and pointing to files that actually exist, plus warnings about possible hard wraps.
 
-**Manual** (rubrik per kasus): ketepatan kutipan, relevansi analisis, penilaian effort, dan kepatuhan pada perilaku yang diharapkan. Untuk ketepatan kutipan, ambil dua kutipan secara acak dan cari dengan fitur pencarian di file referensinya. Kutipan yang tidak ditemukan persis berarti gagal.
+**Manual** (rubric per case): quote accuracy, relevance of the analysis, effort assessment, and adherence to the expected behavior. For quote accuracy, pick two quotes at random and search for them in their reference file. A quote that is not found exactly is a fail.
 
-## Ambang rilis
+## Release threshold
 
-Semua kasus bertanda **[wajib]** harus lulus sebelum versi baru dirilis. Kasus lain dicatat hasilnya di `CHANGELOG.md` bila gagal.
+All cases marked **[required]** must pass before a new version is released. For other cases, record failures in `CHANGELOG.md`.
