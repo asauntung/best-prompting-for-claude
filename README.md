@@ -1,31 +1,29 @@
 # Best Prompting for Claude
 
-Skill `/best-prompting` untuk menyusun dan memperbaiki prompt **berdasarkan dokumentasi resmi Anthropic**, jadi ini bukan tebakan atau dari "tips viral". Setiap saran disertai kutipan langsung dari dokumen sumber, sehingga Anda bisa memeriksa sendiri dasarnya.
+A `/best-prompting` skill that writes and fixes prompts **based on Anthropic's official documentation**, not guesswork or "viral tips". Every recommendation comes with a direct quote from the source document, so you can check the basis yourself.
 
-*English summary: a Claude skill that writes or fixes prompts for Claude Sonnet 5, Sonnet 5.5, Opus 5.5, and Fable 5.1 (chat, Cowork, Claude Code), grounded only in Anthropic's official prompting docs bundled in `references/`, with verbatim citations for every claim. Default output language is Indonesian; it follows the user's language otherwise.*
+## What the skill does
 
-## Apa yang dilakukan skill ini
+Invoke `/best-prompting`, then describe what you need or paste the prompt you want improved. The skill will:
 
-Panggil `/best-prompting`, lalu jelaskan kebutuhan Anda atau tempel prompt yang ingin diperbaiki. Lalu, skill akan:
+1. Read all of the Anthropic documentation in `references/`.
+2. Analyze your need, or diagnose the weaknesses of your existing prompt, with verbatim quotes and `file-name > section heading` references. Suggestions not grounded in the documents are labeled **[Inference]**.
+3. Assess the right effort level (`low` to `max`) for your model and task.
+4. Deliver one final, ready-to-copy prompt, preceded by a marker line such as `Final: Claude Code, Opus 5.5, high`.
 
-1. Membaca seluruh dokumentasi Anthropic di `references/`.
-2. Menganalisis kebutuhan Anda, atau mendiagnosis kelemahan prompt lama, dengan kutipan verbatim dan rujukan `nama-file > judul bagian`. Saran yang tidak berdasar dokumen diberi label **[Inferensi]**.
-3. Menilai level effort yang tepat (`low` sampai `max`) untuk model dan tugas Anda.
-4. Memberikan satu prompt final siap salin, diawali baris penanda seperti `Final: Claude Code, Opus 5.5, high`.
-
-| | Didukung |
+| | Supported |
 |---|---|
-| Model | Claude Sonnet 5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.1 |
-| Ekosistem | Chat (claude.ai dan aplikasi), Cowork, Claude Code |
-| Bahasa | Indonesia (default), mengikuti bahasa pengguna |
+| Models | Claude Sonnet 5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.1 |
+| Ecosystems | Chat (claude.ai and apps), Cowork, Claude Code |
+| Language | Follows the language of your request (English if unclear) |
 
-Lihat hasil studi kasusnya di folder [`examples/`](examples/).
+See the case studies in the [`examples/`](examples/) folder.
 
-## Cara memasang
+## Installation
 
-**claude.ai dan Cowork.** Unduh [`dist/best-prompting.zip`](dist/best-prompting.zip) (klik file, lalu tombol unduh). Di claude.ai buka **Customize > Skills**, klik **+**, pilih **+ Create skill**, lalu **Upload a skill** dan pilih zip tadi. Jangan ganti nama zip maupun folder di dalamnya: nama folder harus sama dengan nama skill. Skill yang sudah diunggah juga tersedia di Cowork dan bisa dinyalakan atau dimatikan di sana. Rujukan resmi: [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+**claude.ai and Cowork.** Download [`dist/best-prompting.zip`](dist/best-prompting.zip) (click the file, then the download button). On claude.ai, open **Customize > Skills**, click **+**, choose **+ Create skill**, then **Upload a skill** and select the zip. Do not rename the zip or the folder inside it: the folder name must match the skill name. An uploaded skill is also available in Cowork and can be turned on or off there. Official reference: [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
 
-**Claude Code.** Jika Anda masuk ke Claude Code dengan akun Claude yang sama, skill yang diunggah di claude.ai ikut termuat (menurut halaman bantuan di atas, perlu Claude Code v2.1.273 atau lebih baru). Cara manual: salin folder `best-prompting/` ke folder skill pribadi Anda.
+**Claude Code.** If you sign in to Claude Code with the same Claude account, skills uploaded on claude.ai are loaded too (according to the help page above, this requires Claude Code v2.1.273 or later). To install manually, copy the `best-prompting/` folder into your personal skills folder:
 
 ```bash
 git clone https://github.com/asauntung/best-prompting-for-claude.git
@@ -33,41 +31,41 @@ mkdir -p ~/.claude/skills
 cp -r best-prompting-for-claude/best-prompting ~/.claude/skills/
 ```
 
-Atau ke `.claude/skills/` di dalam sebuah proyek bila hanya ingin dipakai di proyek itu.
+Or copy it into `.claude/skills/` inside a project if you only want it in that project.
 
-## Cara memakai
+## Usage
 
-Contoh permintaan:
+Example requests:
 
 ```text
-/best-prompting Buatkan instruksi Project di claude.ai untuk membantu saya menulis caption Instagram dari catatan produk. Model Sonnet 5.
+/best-prompting Write Project instructions on claude.ai that help me turn product notes into Instagram captions. Model Sonnet 5.
 ```
 
 ```text
-/best-prompting Perbaiki prompt ini untuk Claude Code, Opus 5.5, effort high:
-[tempel prompt Anda]
+/best-prompting Fix this prompt for Claude Code, Opus 5.5, effort high:
+[paste your prompt]
 ```
 
-Sebutkan **model** (wajib) dan **ekosistem**. Effort boleh tidak disebut: skill akan mengusulkannya. Jika model atau ekosistem tidak jelas, skill akan bertanya dulu.
+Name the **model** (required) and the **ecosystem**. Effort is optional: the skill will propose one. If the model or ecosystem is unclear, the skill asks first.
 
-## Batasan yang perlu Anda tahu
+## Limitations to know about
 
-- Skill ini sengaja hanya berpijak pada dokumen di `references/`. Kalau dokumen tidak membahas sesuatu, skill akan mengatakannya, bukan mengarang.
-- Membaca seluruh referensi (sekitar 270 KB) memakan cukup banyak token di setiap pemanggilan. Itu harga dari analisis yang bisa dipertanggungjawabkan.
-- Dokumentasi Anthropic terus berubah. Tanggal pengambilan tercantum di header setiap file referensi dan di [`CHANGELOG.md`](CHANGELOG.md).
-- Prompt yang baik tidak menggantikan pilihan model dan effort yang tepat. Skill akan menyebut sisa risiko yang tidak bisa ditutup oleh prompt.
+- The skill deliberately relies only on the documents in `references/`. If the documents don't cover something, the skill says so instead of making it up.
+- Reading all the references (about 270 KB) costs a fair number of tokens on every invocation. That is the price of an analysis you can verify.
+- Anthropic's documentation keeps changing. The retrieval date is in the header of every reference file and in [`CHANGELOG.md`](CHANGELOG.md).
+- A good prompt does not replace the right choice of model and effort. The skill names the residual risk a prompt cannot cover.
 
-## Isi repo
+## Repository contents
 
-| Path | Isi |
+| Path | Contents |
 |---|---|
-| `best-prompting/` | Skill itu sendiri: `SKILL.md` dan `references/` |
-| `dist/best-prompting.zip` | Skill siap unggah |
-| `examples/` | Studi kasus: contoh keluaran dan peragaan skill |
-| `evals/` | Kasus uji dan cara menguji skill |
-| `scripts/` | Pemutakhiran referensi, pemeriksa keluaran, pembuat zip |
-| `MAINTAINING.md` | Prosedur saat Anthropic memperbarui dokumen atau merilis model baru |
+| `best-prompting/` | The skill itself: `SKILL.md` and `references/` |
+| `dist/best-prompting.zip` | Ready-to-upload skill |
+| `examples/` | Case studies: sample outputs and demonstrations of the skill |
+| `evals/` | Test cases and how to test the skill |
+| `scripts/` | Reference updater, output checker, zip builder |
+| `MAINTAINING.md` | Procedure for when Anthropic updates its documents or releases a new model |
 
-## Lisensi dan atribusi
+## License and attribution
 
-Tulisan asli di repo ini (SKILL.md, skrip, contoh, evals, dokumentasi) berlisensi [MIT](LICENSE). File di `best-prompting/references/` dan `evals/references/` adalah salinan dokumentasi Anthropic dan **tidak** termasuk lisensi MIT; lihat [`NOTICE.md`](NOTICE.md). Proyek ini tidak berafiliasi dengan, dan tidak didukung oleh, Anthropic.
+The original writing in this repo (SKILL.md, scripts, examples, evals, documentation) is licensed under [MIT](LICENSE). The files in `best-prompting/references/` and `evals/references/` are copies of Anthropic documentation and are **not** covered by the MIT license; see [`NOTICE.md`](NOTICE.md). This project is not affiliated with or endorsed by Anthropic.

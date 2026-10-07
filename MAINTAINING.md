@@ -1,52 +1,52 @@
-# Memelihara skill ini
+# Maintaining this skill
 
-Dokumentasi Anthropic berubah beberapa kali dalam setahun, dan model baru terus dirilis. Prosedur di bawah menjaga skill tetap mutakhir. Semua skrip hanya butuh Python 3.9 ke atas, tanpa pustaka tambahan.
+Anthropic's documentation changes several times a year, and new models keep being released. The procedure below keeps the skill up to date. All scripts need only Python 3.9 or later, with no extra libraries.
 
-## A. Anthropic memperbarui dokumen yang sudah ada
+## A. Anthropic updates an existing document
 
-1. Unduh ulang dan konversi semua referensi:
+1. Re-download and convert all references:
 
    ```bash
    python3 scripts/update_references.py
    ```
 
-   Skrip mengambil versi Markdown tiap halaman (URL halaman + `.md`), mengubah komponen situs ke format GitHub, memasang ulang semua `[CATATAN LOKAL]`, dan menulis header dengan tanggal hari ini.
+   The script fetches the Markdown version of each page (page URL + `.md`), converts site components to GitHub format, re-inserts every `[LOCAL NOTE]`, and writes a header with today's date.
 
-2. Jika skrip berhenti dengan pesan "judul ... ditemukan 0 kali", berarti Anthropic mengganti judul bagian yang diberi catatan. Buka `scripts/local_notes.json`, sesuaikan `heading` dengan judul baru, lalu jalankan lagi. Periksa juga apakah isi catatan itu masih benar.
+2. If the script stops with a message like "heading ... found 0 times", Anthropic has renamed a section that carries a note. Open `scripts/local_notes.json`, update `heading` to the new title, and run it again. Also check whether the note's content is still correct.
 
-3. Baca perubahannya dengan `git diff`. Perhatikan terutama:
-   - bagian baru yang menyebut model lama dan perlu diberi `[CATATAN LOKAL]`;
-   - bagian lama yang diberi catatan tapi kini sudah diperbarui Anthropic, sehingga catatannya perlu dihapus;
-   - perubahan anjuran effort di panduan model.
+3. Review the changes with `git diff`. Pay particular attention to:
+   - new sections that mention older models and need a `[LOCAL NOTE]`;
+   - older sections that carry a note but have since been updated by Anthropic, so the note should be removed;
+   - changes to the effort recommendations in the model guides.
 
-4. Uji ulang (lihat bagian D), bangun ulang zip, perbarui `CHANGELOG.md`.
+4. Re-test (see section D), rebuild the zip, and update `CHANGELOG.md`.
 
-## B. Anthropic merilis model baru
+## B. Anthropic releases a new model
 
-1. Tambahkan halaman panduan model baru ke daftar `PAGES` di `scripts/update_references.py`, lalu jalankan skripnya.
-2. Perbarui tabel di bagian 1 `SKILL.md` (nama model, panduan, induk). Tabel itu satu-satunya tempat daftar model ditulis. Pemeriksa keluaran juga membaca daftar model dari tabel itu.
-3. Perbarui tabel isi `references/` di bagian 2 `SKILL.md`, `description` di frontmatter, dan README.
-4. Jika model lama tidak lagi didukung, hapus dari tabel dan dari `PAGES`, lalu hapus file referensinya.
-5. Tinjau ulang semua `[CATATAN LOKAL]`: rujukan silang ke panduan model mungkin perlu ditambah.
+1. Add the new model's guide page to the `PAGES` list in `scripts/update_references.py`, then run the script.
+2. Update the table in section 1 of `SKILL.md` (model name, guide, parent). That table is the only place the model list is written. The output checker also reads the model list from it.
+3. Update the `references/` contents table in section 2 of `SKILL.md`, the `description` in the frontmatter, and the README.
+4. If an older model is no longer supported, remove it from the table and from `PAGES`, then delete its reference file.
+5. Review all `[LOCAL NOTE]` insertions again: cross-references to model guides may need to be added.
 
-## C. Mengubah atau menambah `[CATATAN LOKAL]`
+## C. Changing or adding a `[LOCAL NOTE]`
 
-Jangan mengedit file di `references/` dengan tangan, karena perubahan akan hilang saat skrip dijalankan lagi. Edit `scripts/local_notes.json`, lalu jalankan `python3 scripts/update_references.py`. Setiap catatan terdiri dari nama file, judul bagian yang persis sama dengan dokumen, dan paragraf catatan.
+Do not edit the files in `references/` by hand, because the changes are lost the next time the script runs. Edit `scripts/local_notes.json`, then run `python3 scripts/update_references.py`. Each note consists of a file name, a section heading written exactly as in the document, and the note paragraphs.
 
-## D. Menguji dan merilis
+## D. Testing and releasing
 
-1. Jalankan kasus uji di `evals/README.md` dengan skill versi baru, minimal kasus bertanda wajib.
-2. Periksa keluaran dan contoh:
+1. Run the test cases in `evals/README.md` against the new skill version, at least the cases marked required.
+2. Check the outputs and examples:
 
    ```bash
    python3 scripts/check_output.py examples/*.md
    ```
 
-3. Bila perilaku skill berubah, perbarui contoh di `examples/` dengan menjalankan ulang skill.
-4. Bangun zip, lalu commit:
+3. If the skill's behavior changed, update the examples in `examples/` by running the skill again.
+4. Build the zip, then commit:
 
    ```bash
    python3 scripts/build_zip.py
    ```
 
-5. Catat perubahan di `CHANGELOG.md` dan naikkan versi.
+5. Record the changes in `CHANGELOG.md` and bump the version.

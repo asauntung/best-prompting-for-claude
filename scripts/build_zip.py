@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Bungkus folder best-prompting/ menjadi dist/best-prompting.zip.
+"""Package the best-prompting/ folder into dist/best-prompting.zip.
 
-File zip ini yang diunggah ke menu Skills di claude.ai.
-Isinya satu folder best-prompting/ berisi SKILL.md dan references/.
+This zip file is what gets uploaded to the Skills menu on claude.ai.
+It contains a single best-prompting/ folder with SKILL.md and references/.
 
-Pemakaian:
+Usage:
     python3 scripts/build_zip.py
 """
 
@@ -24,7 +24,7 @@ def main():
             info = zipfile.ZipInfo(str(path.relative_to(ROOT)), date_time=(2026, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             zf.writestr(info, path.read_bytes())
-    print(f"ok  {OUT.relative_to(ROOT)}  ({len(files)} file, {OUT.stat().st_size:,} byte)")
+    print(f"ok  {OUT.relative_to(ROOT)}  ({len(files)} files, {OUT.stat().st_size:,} bytes)")
 
 
 if __name__ == "__main__":
