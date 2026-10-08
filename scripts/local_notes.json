@@ -15,7 +15,7 @@
       "heading": "### Overthinking and excessive thoroughness",
       "text": [
         "**[LOCAL NOTE] This section is specific to Claude Opus 4.6, not to this skill's target models.**",
-        "Equivalent guidance for the target models: `prompting-claude-opus-5-5.md > Calibrate effort`, `prompting-claude-opus-5.md > Task scope and over-verification` and `> Self-correction`, `prompting-claude-sonnet-5.md > Calibrating effort and thinking depth`, `prompting-claude-sonnet-5-5.md > Calibrate effort` and `> Steer initiative and scope`, and `prompting-claude-fable-5-1.md > Consider all effort levels`.",
+        "Equivalent guidance for the target models: `prompting-claude-opus-5-5.md > Calibrate effort`, `prompting-claude-opus-5.md > Task scope and over-verification` and `> Self-correction`, `prompting-claude-sonnet-5.md > Calibrating effort and thinking depth`, `prompting-claude-sonnet-5-5.md > Calibrate effort` and `> Steer initiative and scope`, `prompting-claude-haiku-5-5.md > Use effort to control thinking`, and `prompting-claude-fable-5-1.md > Consider all effort levels`.",
         "Treat as indicative and cross-check against the guide for the target model before use."
       ]
     },
@@ -42,7 +42,7 @@
       "heading": "### Overeagerness",
       "text": [
         "**[LOCAL NOTE] This section is specific to Claude Opus 4.5 and Claude Opus 4.6, not to this skill's target models.**",
-        "Equivalent guidance for the target models: `prompting-claude-opus-5.md > Task scope and over-verification`, `prompting-claude-sonnet-5-5.md > Steer initiative and scope`, `prompting-claude-fable-5.md > Consider all effort levels`, and `prompting-claude-fable-5-1.md > Keep changes and tests to what the task asks for`.",
+        "Equivalent guidance for the target models: `prompting-claude-opus-5.md > Task scope and over-verification`, `prompting-claude-sonnet-5-5.md > Steer initiative and scope`, `prompting-claude-haiku-5-5.md > Prevent early stopping in long agent prompts` (its second paragraph), `prompting-claude-fable-5.md > Consider all effort levels`, and `prompting-claude-fable-5-1.md > Keep changes and tests to what the task asks for`.",
         "Treat as indicative and cross-check against the guide for the target model before use."
       ]
     },
@@ -69,7 +69,7 @@
       "heading": "## Prefill Claude's response",
       "text": [
         "**[LOCAL NOTE] The technique in this section no longer works for this skill's target models. Never suggest prefill.**",
-        "Prefilling the last assistant turn returns a 400 error on Claude 4.6 and later, which includes Claude Sonnet 5, Claude Sonnet 5.5, Claude Opus 5, Claude Opus 5.5, Claude Fable 5, and Claude Fable 5.1. The examples below are kept as is for the record, not as a recipe.",
+        "Prefilling the last assistant turn returns a 400 error on Claude 4.6 and later, which includes Claude Haiku 5.5, Claude Sonnet 5, Claude Sonnet 5.5, Claude Opus 5, Claude Opus 5.5, Claude Fable 5, and Claude Fable 5.1. The examples below are kept as is for the record, not as a recipe.",
         "The replacements are in `prompting-best-practices.md > Migrating away from prefilled responses`: a direct instruction to drop the preamble, output wrapped in XML tags, or Structured Outputs and tool calling for API users."
       ]
     },
@@ -114,6 +114,34 @@
       "heading": "## Tolerant tool-call handling",
       "text": [
         "**[LOCAL NOTE] This section is API harness mechanics** (handling of tool names and parameters). Not relevant to prompt content."
+      ]
+    },
+    {
+      "file": "prompting-claude-haiku-5-5.md",
+      "heading": "## Use effort to control thinking",
+      "text": [
+        "**[LOCAL NOTE] Part of this section is API mechanics** (`max_tokens`, `thinking: {\"type\": \"disabled\"}`, the prompt cache, per-message effort changes and its beta header). Chat, Cowork, and Claude Code users do not control them from a prompt. The parts relevant to them are the effort levels themselves and the finding that telling the model in the prompt to answer directly did not stop it from thinking: lower the effort instead of writing such an instruction."
+      ]
+    },
+    {
+      "file": "prompting-claude-haiku-5-5.md",
+      "heading": "## Use adaptive thinking with JSON output and your own tools",
+      "text": [
+        "**[LOCAL NOTE] This section applies only to API users who turn thinking off and request JSON through structured outputs** (`output_config.format`, `tool_choice`). Chat, Cowork, and Claude Code users cannot set these. Use the line in the `text` block only when the user is building such an integration."
+      ]
+    },
+    {
+      "file": "prompting-claude-haiku-5-5.md",
+      "heading": "## Mid-turn user messages",
+      "text": [
+        "**[LOCAL NOTE] This section is aimed at harness builders** (placing user text relative to `tool_result` blocks and mid-conversation system messages). Chat, Cowork, and Claude Code users do not control it from a prompt."
+      ]
+    },
+    {
+      "file": "prompting-claude-haiku-5-5.md",
+      "heading": "## Safeguard refusals",
+      "text": [
+        "**[LOCAL NOTE] This section is API mechanics** (`stop_reason: \"refusal\"`, refusal categories, client-side handling). It contains no prompt content. At most, mention in the analysis that a request may be declined by a safety classifier and that resending it unchanged usually does not help."
       ]
     }
   ]

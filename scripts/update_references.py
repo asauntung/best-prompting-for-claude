@@ -31,6 +31,7 @@ DOCS = "https://platform.claude.com/docs/en/"
 
 # (local file name, page path, destination folder)
 PAGES = [
+    ("prompting-claude-haiku-5-5.md", "build-with-claude/prompt-engineering/prompting-claude-haiku-5-5", SKILL_REFS),
     ("prompting-claude-sonnet-5-5.md", "build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5", SKILL_REFS),
     ("prompting-claude-sonnet-5.md", "build-with-claude/prompt-engineering/prompting-claude-sonnet-5", SKILL_REFS),
     ("prompting-claude-opus-5-5.md", "build-with-claude/prompt-engineering/prompting-claude-opus-5-5", SKILL_REFS),
@@ -135,10 +136,10 @@ def convert_mdx(body: str) -> str:
             emit("</details>")
             emit("")
             continue
-        if re.fullmatch(r"<(AccordionGroup|CardGroup|CodeGroup)(\s[^>]*)?>", stripped):
+        if re.fullmatch(r"<(AccordionGroup|CardGroup|CodeGroup|Frame)(\s[^>]*)?>", stripped):
             stack.append("wrap")
             continue
-        if re.fullmatch(r"</(AccordionGroup|CardGroup|CodeGroup)>", stripped):
+        if re.fullmatch(r"</(AccordionGroup|CardGroup|CodeGroup|Frame)>", stripped):
             stack.pop()
             continue
         m = re.fullmatch(r"<Card(\s[^>]*)?>(.*?)(</Card>)?", stripped)

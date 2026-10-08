@@ -1,6 +1,6 @@
 ---
 name: best-prompting
-description: Writes new prompts or improves existing ones for Claude in chat (claude.ai), Cowork, or Claude Code, for the models Claude Sonnet 5, Sonnet 5.5, Opus 5.5, and Fable 5.1 only, using the official Anthropic documents in references/ as the sole ground truth. Use whenever the user invokes /best-prompting, asks for a prompt or system prompt for Claude, or pastes a prompt to be improved. Not for image or video generation prompts (Nano Banana, Midjourney, and the like), and not for non-Claude models.
+description: Writes new prompts or improves existing ones for Claude in chat (claude.ai), Cowork, or Claude Code, for the models Claude Haiku 5.5, Sonnet 5, Sonnet 5.5, Opus 5.5, and Fable 5.1 only, using the official Anthropic documents in references/ as the sole ground truth. Use whenever the user invokes /best-prompting, asks for a prompt or system prompt for Claude, or pastes a prompt to be improved. Not for image or video generation prompts (Nano Banana, Midjourney, and the like), and not for non-Claude models.
 ---
 
 # /best-prompting
@@ -13,12 +13,13 @@ This table is the only place the model list is written. When Anthropic releases 
 
 | Name in the Final line | Model guide | Parent guide |
 |---|---|---|
+| `Haiku 5.5` | `prompting-claude-haiku-5-5.md` | none |
 | `Sonnet 5` | `prompting-claude-sonnet-5.md` | none |
 | `Sonnet 5.5` | `prompting-claude-sonnet-5-5.md` | `prompting-claude-sonnet-5.md` |
 | `Opus 5.5` | `prompting-claude-opus-5-5.md` | `prompting-claude-opus-5.md` |
 | `Fable 5.1` | `prompting-claude-fable-5-1.md` | `prompting-claude-fable-5.md` |
 
-Parent models exist because the newer model guides only cover what differs from the previous model, and state that prompts for the parent model still apply. If the user names a model outside the table, say that this skill only serves the models in the table, then ask which model they mean.
+Parent models exist because the newer model guides only cover what differs from the previous model, and state that prompts for the parent model still apply. Haiku 5.5 has no parent guide here: its guide is written as differences from Claude Haiku 4.5, which is not bundled, so use `prompting-best-practices.md` as its foundation and do not borrow advice from the Sonnet or Opus guides. If the user names a model outside the table, say that this skill only serves the models in the table, then ask which model they mean.
 
 ## 2. Single ground truth
 
@@ -36,6 +37,7 @@ Contents of `references/`:
 
 | File | Role |
 |---|---|
+| `prompting-claude-haiku-5-5.md` | Model guide: Haiku 5.5 |
 | `prompting-claude-sonnet-5.md` | Model guide: Sonnet 5, also parent of Sonnet 5.5 |
 | `prompting-claude-sonnet-5-5.md` | Model guide: Sonnet 5.5 |
 | `prompting-claude-opus-5-5.md` | Model guide: Opus 5.5 |
@@ -74,8 +76,8 @@ The skill needs three parameters: ecosystem, model, and effort.
 
 The references are written for API developers and discuss kinds of work, rarely product names. Map as follows, and look for relevant sections in ALL files:
 
-- **Chat**: conversations in claude.ai or the Claude apps, including Project instructions. The references name it explicitly, for example "Thinking instructions in chat system prompts" and "Mark pasted text in user messages" in the Opus 5.5 guide, "Formatting in chat" in the Fable 5.1 guide, and "Tool use in chat and knowledge work" in the Sonnet 5.5 guide.
-- **Claude Code**: agentic work on files and folders, including non-coding work (research, text processing, data mining). The references mention Claude Code in `prompting-best-practices.md` (the context awareness and multiwindow workflows sections) and in `prompting-claude-opus-5.md > Controlling subagent spawning`, and cover agentic work at length in the "Agentic systems" section and in each model guide.
+- **Chat**: conversations in claude.ai or the Claude apps, including Project instructions. The references name it explicitly, for example "Thinking instructions in chat system prompts" and "Mark pasted text in user messages" in the Opus 5.5 guide, "Formatting in chat" in the Fable 5.1 guide, "Tool use in chat and knowledge work" in the Sonnet 5.5 guide, and "Keep chatbots to their system prompt" and "Accurate search results" in the Haiku 5.5 guide.
+- **Claude Code**: agentic work on files and folders, including non-coding work (research, text processing, data mining). The references mention Claude Code in `prompting-best-practices.md` (the context awareness and multiwindow workflows sections) and in `prompting-claude-opus-5.md > Controlling subagent spawning`, and cover agentic work at length in the "Agentic systems" section and in each model guide, for example "Prevent early stopping in long agent prompts" and "Tell coding agents to verify their changes" in the Haiku 5.5 guide.
 - **Cowork**: this name does not appear in the references. Mapping it to cross-application agentic work, unattended work, research, and processing third-party content is an **[Inference]** and must be labeled as such in the analysis. Relevant sections include "Explore context in multi-app workflows" and "Unattended agentic runs" in the Opus 5.5 guide, the research and autonomy sections of `prompting-best-practices.md`, and the indirect prompt injection section of `mitigate-jailbreaks-and-prompt-injections.md`.
 
 API mechanics (`max_tokens`, harness code, turn-scoped system messages, caching, thinking blocks, request parameters) cannot be controlled by the user from a prompt. Do not put them in the prompt. Translate them only into what the user can control, namely model choice, effort, and prompt content. If a reference recommendation can only be applied through the API, mention briefly in the analysis that it is not available in the user's ecosystem.
@@ -90,7 +92,7 @@ A good prompt contains everything the task needs and nothing more. These rules a
 - **One short instruction, not a list of cases.** "Instruction-following is improved enough that you can steer most behaviors with a brief instruction rather than enumerating each behavior by name." (`prompting-claude-fable-5.md > Strong instruction following`). Do not enumerate every way the model could fail. For target models other than Fable 5.1, the analysis notes that this quote comes from another model's guide.
 - **Give the reason once, up front.** One paragraph on the purpose of the task and who the result is for (`prompting-claude-fable-5.md > Give the reason, not only the request`). Later rules do not each get their own "because" clause, unless the reason cannot be inferred from that paragraph.
 - **Each rule is written once, in one place.** No summary section, checklist, or acceptance criteria that repeat the prompt. Examples demonstrate rules, they do not restate them.
-- **Do not write behavior the target model already has by default.** For example, verification instructions for Opus: "Claude Opus 5 verifies its own work without being told to." (`prompting-claude-opus-5.md > Task scope and over-verification`). Write only what needs to change from the default behavior.
+- **Do not write behavior the target model already has by default.** For example, verification instructions for Opus: "Claude Opus 5 verifies its own work without being told to." (`prompting-claude-opus-5.md > Task scope and over-verification`). Write only what needs to change from the default behavior. Defaults differ between models: the Haiku 5.5 guide, for instance, recommends a verification instruction because at `low` and `medium` effort the model "sometimes reports a code change as done without running a check" (`prompting-claude-haiku-5-5.md > Tell coding agents to verify their changes`).
 - **Coin terms sparingly.** A special term is defined once and then used consistently. Do not coin terms for things that ordinary words can name.
 - **Condensing means removing, not rephrasing.** When shortening a prompt, sentences that act as criteria or limits (pass conditions, prohibitions, required formats) are copied exactly. Only second and later copies, and sentences that do not change behavior, are removed. Changing one word in a criterion can change the model's behavior.
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.4.0 (2026-10-08)
+
+- New supported model: Claude Haiku 5.5, with the guide `prompting-claude-haiku-5-5.md`. It has no parent guide, because its guide is written as differences from Claude Haiku 4.5, which is not bundled.
+- All references re-fetched as of 2026-10-08. `prompting-best-practices.md` now lists Haiku 5.5 in the model guide table and the thinking and migration sections. Across the model guides, Anthropic now states more widely that prompts asking the model to write out its reasoning may be declined (`reasoning_extraction`), and `prompting-claude-opus-5.md` gains a section "Reasoning in the response". `reduce-hallucinations.md` and `develop-tests.md` replace "reason in `<thinking>` tags" advice with thinking itself.
+- Four new local notes in the Haiku 5.5 guide for sections that only apply through the API or a harness. The notes on overthinking, overeagerness, and prefill now also cover Haiku 5.5.
+- `update_references.py` now converts the `<Frame>` site component, which `develop-tests.md` started using.
+- Added test case K14 for Haiku 5.5.
+
 ## v1.3.0 (2026-10-07)
 
 - The whole repo is now in English: `SKILL.md`, README, documentation, examples, test cases, script messages, and the `[LOCAL NOTE]` insertions (previously `[CATATAN LOKAL]`). The `[Inference]` label was previously `[Inferensi]`.

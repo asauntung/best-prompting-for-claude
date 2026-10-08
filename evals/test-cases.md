@@ -19,7 +19,7 @@ Input:
 ```text
 /best-prompting Write a prompt for Claude Haiku 4.5 in chat, to translate emails into Spanish.
 ```
-Expected: the skill states that it only serves the models in the table in section 1 of `SKILL.md` (Sonnet 5, Sonnet 5.5, Opus 5.5, Fable 5.1), then asks which model is meant.
+Expected: the skill states that it only serves the models in the table in section 1 of `SKILL.md` (Haiku 5.5, Sonnet 5, Sonnet 5.5, Opus 5.5, Fable 5.1), then asks which model is meant.
 Pass if: no prompt is produced for Haiku 4.5.
 
 ### K03 Ecosystem can be inferred
@@ -134,3 +134,12 @@ Input:
 ```
 Expected: effort is proposed from `prompting-claude-sonnet-5-5.md > Calibrate effort`, not from the effort section of the Sonnet 5 guide, because the references say the Sonnet 5.5 effort levels have been recalibrated. Because the answers depend on regulations that can change, the analysis also cites `prompting-claude-sonnet-5-5.md > Tool use in chat and knowledge work`.
 Pass if: the Final line reads `Final: Chat, Sonnet 5.5, <effort>`, the effort assessment quotes the Sonnet 5.5 guide, and every recommendation taken from the Sonnet 5 guide is consistent with the Sonnet 5.5 guide.
+
+### K14 [required] Haiku 5.5 uses its own guide, with no parent
+
+Input:
+```text
+/best-prompting Write a CLAUDE.md for a small Python repo where Claude fixes bugs and adds tests. Model Haiku 5.5, effort low.
+```
+Expected: effort is assessed from `prompting-claude-haiku-5-5.md > Use effort to control thinking`, which names `medium` as the default in Claude Code and warns that at `low` "the model is more likely to skip a search, stop early, or skip a check". If the skill keeps `low`, the prompt carries the relevant snippets from `> Prevent early stopping in long agent prompts` and `> Tell coding agents to verify their changes`, and the residual risk is named. No advice is borrowed from the Sonnet or Opus guides, and nothing from the `[LOCAL NOTE]`-marked API sections (thinking off, `max_tokens`, `tool_result` placement, refusal handling) goes into the prompt.
+Pass if: the Final line reads `Final: Claude Code, Haiku 5.5, <effort>`, the effort assessment quotes the Haiku 5.5 guide, and the prompt contains no API mechanics.

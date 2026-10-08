@@ -13,7 +13,7 @@ Invoke `/best-prompting`, then describe what you need or paste the prompt you wa
 
 | | Supported |
 |---|---|
-| Models | Claude Sonnet 5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.1 |
+| Models | Claude Haiku 5.5, Claude Sonnet 5, Claude Sonnet 5.5, Claude Opus 5.5, Claude Fable 5.1 |
 | Ecosystems | Chat (claude.ai and apps), Cowork, Claude Code |
 | Language | Follows the language of your request (English if unclear) |
 
@@ -51,7 +51,7 @@ Name the **model** (required) and the **ecosystem**. Effort is optional: the ski
 ## Limitations to know about
 
 - The skill deliberately relies only on the documents in `references/`. If the documents don't cover something, the skill says so instead of making it up.
-- Reading all the references (about 270 KB) costs a fair number of tokens on every invocation. That is the price of an analysis you can verify.
+- Reading all the references (about 290 KB) costs a fair number of tokens on every invocation. That is the price of an analysis you can verify.
 - Anthropic's documentation keeps changing. The retrieval date is in the header of every reference file and in [`CHANGELOG.md`](CHANGELOG.md).
 - A good prompt does not replace the right choice of model and effort. The skill names the residual risk a prompt cannot cover.
 
